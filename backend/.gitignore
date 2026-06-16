@@ -1,0 +1,14 @@
+# Dependencias de Node
+node_modules/
+
+# Archivos de entorno (Seguridad)
+.env
+
+# Archivos de Base de Datos SQLite
+*.sqlite
+*.sqlite3
+*.db
+*.db3
+
+# Logs de npm
+npm-debug.log*
