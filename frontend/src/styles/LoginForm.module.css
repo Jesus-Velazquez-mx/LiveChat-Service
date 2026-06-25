@@ -1,0 +1,47 @@
+.formulario {
+    padding: 40px;
+    border-radius: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background: var(--color-glass-bg);
+    border: 1px solid var(--color-glass-borde);
+    box-shadow: 0 8px 32px 0 var(--color-sombra-glass);
+    width: 100%;
+    max-width: 400px;
+    /* Esto ayuda a desenfocar lo que hay atrás */
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+}
+
+.inputFormulario {
+    background-color: transparent;
+    border: 1px solid var(--color-borde-input);
+    padding: 12px 16px;
+    font-size: 16px;
+    outline: none;
+    /* Transición suave para cuando el usuario le dé clic */
+    transition: all 0.3s ease;
+    color: var(--color-texto);
+}
+
+/* :focus se usa para dar estilos cuando el usuario hace click en el input*/
+.inputFormulario:focus {
+    /* Cambiamos el color */
+    border-color: var(--color-primario);
+    /* Le agregamos un halo de luz azul alrededor */
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+}
+
+.labelFormulario {
+    font-weight: bold;
+    color: var(--color-texto);
+
+}
+
+.labelCentrada {
+    display: block;
+    text-align: center;
+    color: var(--color-texto-secundario);
+
+}
