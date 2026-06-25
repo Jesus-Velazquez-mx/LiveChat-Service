@@ -1,0 +1,38 @@
+.divFormulario {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: var(--color-fondo-formulario);
+    /* Difumina lo que está detrás de la tarjeta */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    /* Un borde ultra delgado y sutil para darle volumen al "cristal" */
+    border: 1px solid var(--color-borde-input);
+    /* Sombra suave para separarlo del fondo */
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    border-radius: 24px;
+}
+
+.tituloFormulario {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.tituloFormulario h1 {
+    font-size: 34px;
+    color: var(--color-texto);
+    margin-bottom: 4px;
+}
+
+.tituloFormulario p {
+    font-size: 20px;
+    color: var(--color-texto-secundario);
+    margin-bottom: 4px;
+
+}
