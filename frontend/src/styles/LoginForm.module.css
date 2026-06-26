@@ -4,14 +4,14 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
-    background: var(--color-glass-bg);
-    border: 1px solid var(--color-glass-borde);
-    box-shadow: 0 8px 32px 0 var(--color-sombra-glass);
     width: 100%;
     max-width: 400px;
-    /* Esto ayuda a desenfocar lo que hay atrás */
+    /* Efecto glass*/
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
+    border: var(--color-glass-borde);
+    box-shadow: 0 8px 32px 0 var(--color-sombra-glass);
+    border-radius: 16px;
 }
 
 .inputFormulario {

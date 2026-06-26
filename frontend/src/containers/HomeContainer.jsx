@@ -1,10 +1,13 @@
 import React, { useContext, useEffect } from 'react';
 import { AuthContext } from '../context/AuthContext';
 import { toast } from 'react-toastify';
+import styles from '../styles/HomeContainer.module.css';
+import MenuBar from '../components/MenuBar';
+import { useNavigate } from 'react-router-dom'
 
 function HomeContainer() {
     /* Obtenemos el socket o la conexión */
-    const { socket } = useContext(AuthContext);
+    const { socket, logout } = useContext(AuthContext);
     /* Cuando renderizamos */
     useEffect(() => {
         /* Si no hay socket o conexión no debería de pasar nada en el home */
@@ -33,11 +36,20 @@ function HomeContainer() {
         };
     }, [socket]); /* Esto cambia si la conexión (socket) cambia */
 
+    /* Para navegar entre vistas */
+    const navigate = useNavigate();
+
+    const handleLogOut = (e) => {
+        logout();
+        navigate('/signin');
+    }
+
     return (
-        <>
-            <h1>Home Test</h1>
+        <div className={styles.homeContainer}>
+            <MenuBar handleLogOut={handleLogOut} />
+            <h1>Home Testtt</h1>
             {/* Aquí luego pondremos tu lista de usuarios activos */}
-        </>
+        </div>
     );
 }
 

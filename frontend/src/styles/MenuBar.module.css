@@ -1,0 +1,51 @@
+.menuBarContainer {
+    display: flex;
+    flex-direction: column;
+    width: 70px;
+    height: 100vh;
+    align-items: center;
+    background-color: var(--color-glass-bg);
+    /* Efecto glass*/
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: var(--color-glass-borde);
+    box-shadow: 0 8px 32px 0 var(--color-sombra-glass);
+    border-radius: 16px;
+}
+
+.iconosMenu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    border: none;
+    padding: 2px;
+    color: black;
+    cursor: pointer;
+    transition: all 0.2s;
+    width: 30px;
+    height: 30px;
+}
+
+.iconosMenu:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--color-primario);
+}
+
+.grupoSuperior {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    /* Le dice "ocupa todo el espacio vacío posible" */
+    flex: 0.97;
+    align-items: flex-end;
+    margin-top: 10px
+}
+
+.botonSalir:hover {
+    color: #ef4444;
+}
+
+.botonSalir {
+    background-color: transparent;
+}
