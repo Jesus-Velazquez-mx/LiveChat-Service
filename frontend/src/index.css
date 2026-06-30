@@ -11,13 +11,15 @@
 
     /* Variables para el Glassmorphism Claro (Estilo iOS ) */
     --color-glass-bg: rgba(255, 255, 255, 0.15);
-    --color-glass-borde: rgba(255, 255, 255, 0.5);
+    --color-glass-borde: rgba(255, 255, 255, 0.3);
     --color-sombra-glass: rgba(15, 23, 42, 0.1);
 
     /* Utilidades */
     --color-sombra-botones: rgba(37, 99, 235, 0.25);
     --color-borde-input: #CBD5E1;
     --color-fondo-formulario: rgba(255, 255, 255, 0.1);
+    --color-fondo-contenedorPrimario: rgba(255, 255, 255, 0.7);
+
 }
 
 * {

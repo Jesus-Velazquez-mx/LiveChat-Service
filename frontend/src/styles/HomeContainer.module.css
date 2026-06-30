@@ -1,0 +1,38 @@
+.homeContainer {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+.contenedorMenu {
+    /* En lugar de width, usamos flex para controlar el tamaño */
+    flex: 0 0 50px;
+    height: 100%;
+}
+
+.contenedorPrimario {
+    flex: 0 0 350px;
+    height: 100%;
+    background-color: var(--color-fondo-contenedorPrimario);
+    overflow-y: auto;
+    overflow-x: hidden;
+    /* Efecto glass*/
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(16px);
+    border: var(--color-glass-borde);
+    box-shadow: 0 8px 32px 0 var(--color-sombra-glass);
+    border-radius: 16px;
+    background-color: var(--color-fondo-contenedorPrimario);
+
+
+}
+
+
+.contenedorSecundario {
+    /* Abarca el espacio que queda */
+    flex: 1;
+    height: 100%;
+    background-color: blueviolet;
+}

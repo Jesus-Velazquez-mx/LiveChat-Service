@@ -58,7 +58,7 @@ function LoginFormContainer({ isSignIn }) {
 
         } catch (error) {
             console.log('No se ha podido iniciar sesión', error);
-            toast.error('There was an error during your Log In');
+            toast.error('There was an error during your log in.');
         }
 
     }

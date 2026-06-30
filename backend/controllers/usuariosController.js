@@ -70,6 +70,18 @@ const registrarUsuario = async (req, res) => {
                 console.log("Error al registrar al usuario", err.message)
                 return res.status(500).json({ error: "Error al registrar al usuario" })
             } else {
+                /* Sacamos el socket */
+                const io = req.app.get('socketio');
+                /* Guardamos el usuario en un objeto */
+                const nuevoUsuarioParaSocket = {
+                    id: this.lastID,
+                    email: email,
+                    enLinea: 0
+                };
+                /* Emitimos el evento por el socket*/
+                if (io) {
+                    io.emit('nuevo_usuario_registrado', nuevoUsuarioParaSocket);
+                }
                 res.status(201).json({ id: this.lastID, email })
             }
         });

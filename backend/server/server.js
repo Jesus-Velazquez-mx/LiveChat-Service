@@ -28,6 +28,9 @@ const io = new Server(httpServer, {
     }
 });
 
+/* Lo compartimos a express */
+app.set('socketio', io);
+
 /* __filename obtiene la ruta del archivo actual */
 const __filename = fileURLToPath(import.meta.url);
 /* __dirname corta el nombre del archivo, dejando nomás la ubicación de la carpeta en el OS */

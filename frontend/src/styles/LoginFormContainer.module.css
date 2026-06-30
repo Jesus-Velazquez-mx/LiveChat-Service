@@ -5,14 +5,12 @@
     justify-content: center;
     align-items: center;
     background: var(--color-fondo-formulario);
-    /* Difumina lo que está detrás de la tarjeta */
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    /* Un borde ultra delgado y sutil para darle volumen al "cristal" */
-    border: 1px solid var(--color-borde-input);
-    /* Sombra suave para separarlo del fondo */
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-    border-radius: 24px;
+    /* Efecto glass */
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: var(--color-glass-borde);
+    box-shadow: 0 8px 32px 0 var(--color-sombra-glass);
+    border-radius: 16px;
 }
 
 .tituloFormulario {
