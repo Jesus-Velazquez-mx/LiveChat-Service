@@ -1,6 +1,7 @@
 import './App.css'
 import LoginFormContainer from './containers/LoginFormContainer';
 import HomeContainer from './containers/HomeContainer';
+import UserCardContainer from './containers/UserCardContainer'
 /* Para el manejo global del token*/
 import AuthProvider from './context/AuthContext';
 /* Para manejar URLs */
@@ -25,8 +26,16 @@ function App() {
             {/* Todas las rutas*/}
             <Route path="/signin" element={<LoginFormContainer isSignIn />} />
             <Route path="/signup" element={<LoginFormContainer isSignIn={false} />} />
-            <Route path="/home" element={<HomeContainer />} />
+            {/* Se va a utilizar un Outlet, que permite manejar vistas dentro de vistas.
+            Es decir, podemos hacer que una vista se renderice dentro de un contenedor*/}
+            <Route path="/home" element={<HomeContainer />}>
+              {/* Estas rutas se inyectarán en HomeContainer */}
+              <Route index element={<UserCardContainer isActiveList={false} />} />
 
+              <Route path="chats" />
+              <Route path="conectados" element={<UserCardContainer isActiveList={true} />} />
+              <Route path="usuarios" element={<UserCardContainer isActiveList={false} />} />
+            </Route>
 
             {/* Buena práctica. Si alguien escribe lo que sea que no existe, lo mandamos a login */}
             <Route path="*" element={<Navigate to="/signin" replace />} />

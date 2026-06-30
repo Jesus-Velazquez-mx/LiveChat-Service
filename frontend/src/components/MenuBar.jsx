@@ -16,17 +16,17 @@ function MenuBar({ handleLogOut }) {
                 </Link>
 
                 {/* Chats*/}
-                <Link to="/chats" className={styles.iconosMenu} title="My chats" >
+                <Link to="/home/chats" className={styles.iconosMenu} title="My chats" >
                     <FiMessageSquare size={24} />
                 </Link>
 
                 {/* Solo usuarios conectados */}
-                <Link to="/conectados" className={styles.iconosMenu} title="Online users">
+                <Link to="/home/conectados" className={styles.iconosMenu} title="Online users">
                     <FiActivity size={24} />
                 </Link>
 
                 {/* Todos los usuarios*/}
-                <Link to="/usuarios" className={styles.iconosMenu} title="All users">
+                <Link to="/home/usuarios" className={styles.iconosMenu} title="All users">
                     <FiUsers size={24} />
                 </Link>
 

@@ -18,6 +18,8 @@
     --color-sombra-botones: rgba(37, 99, 235, 0.25);
     --color-borde-input: #CBD5E1;
     --color-fondo-formulario: rgba(255, 255, 255, 0.1);
+    --color-fondo-contenedorPrimario: rgba(255, 255, 255, 0.7);
+
 }
 
 * {
