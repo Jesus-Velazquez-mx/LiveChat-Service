@@ -47,7 +47,7 @@ app.use(express.json());
 app.use('/api', router);
 
 /* Buscamos el dist */
-const distPath = path.join(__dirname, '../../dist');
+const distPath = path.join(process.cwd(), 'public');
 
 /* Decimos a express que sirva en la carpeta 'dist', que es donde vivirá el React comiplado*/
 app.use(express.static(distPath));
