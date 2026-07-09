@@ -38,7 +38,7 @@ function AuthProvider({ children }) {
             /* io(URL, opciones)*/
             /* opciones es un objeto de opciones */
             /* auth es otro objeto, y dentro de él se puede poner el token del contexto */
-            const nuevoSocket = io('http://localhost:3000', {
+            const nuevoSocket = io({
                 auth: {
                     token: token
                 }
