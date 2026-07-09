@@ -29,10 +29,11 @@
 
 }
 
-
 .contenedorSecundario {
     /* Abarca el espacio que queda */
     flex: 1;
     height: 100%;
-    background-color: blueviolet;
+    /* Un degradado súper suave usando las versiones más claras de tu azul y morado */
+    background: var(--color-fondo-chat);
+    border-left: 1px solid rgba(0, 0, 0, 0.05);
 }

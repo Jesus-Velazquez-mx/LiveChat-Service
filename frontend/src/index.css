@@ -19,7 +19,7 @@
     --color-borde-input: #CBD5E1;
     --color-fondo-formulario: rgba(255, 255, 255, 0.1);
     --color-fondo-contenedorPrimario: rgba(255, 255, 255, 0.7);
-
+    --color-fondo-chat: linear-gradient(135deg, #EFF4FF 0%, #F4EDFF 100%);
 }
 
 * {

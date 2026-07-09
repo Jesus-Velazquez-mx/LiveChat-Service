@@ -91,13 +91,19 @@ io.use((socket, next) => {
 /*.on('connection') es como la puerta de entrada. Se dispara cada vez que alguien abre el socket. */
 /* Adentro de esta función debe de ir el .on('disconect')*/
 io.on('connection', (socket) => {
+    /* Unimos al usuario a su propia sala privada usando su ID convertido a String */
+    const miId = socket.usuario.id.toString();
+    /* .join mete a un socket (o conexión) a un canal específico. LLeva como parámetro un string identificador de la sala. 
+        Esto es para que cada usuario solamente lea sus propios mensajes. */
+    socket.join(miId);
+
     /* Cambiamos el estado del usuario a enLinea = 1*/
     const sqlConectar = 'UPDATE usuarios SET enLinea = 1 WHERE id = ?';
     db.run(sqlConectar, [socket.usuario.id], (err) => {
         if (err) {
             console.error('Error al poner al usuario en línea:', err.message);
         } else {
-            console.log(`${socket.usuario.email} se ha conectado.`);
+            console.log(`${socket.usuario.email} se ha conectado y unido a su sala.`);
             /* socket.broadcast.emit manda un evento y el objeto a todos los sockets conectados */
             socket.broadcast.emit('usuario_estado_cambiado', { email: socket.usuario.email, enLinea: 1 });
         }
@@ -107,7 +113,10 @@ io.on('connection', (socket) => {
     /* socket.emit(nombreDelEvento, callback) */
     socket.on('enviar_mensaje', (datosDelMensaje) => {
         console.log('Mensaje recibido en el servidor:', datosDelMensaje);
-        io.emit('recibir_mensaje', datosDelMensaje);
+
+        /* io.to().emit para mandarlo solo a la sala del destinatario */
+        const destinatario_id = datosDelMensaje.destinatario_id.toString();
+        io.to(destinatario_id).emit('recibir_mensaje', datosDelMensaje);
     });
 
     /* Se dispara cuando un usuario se desconecta */

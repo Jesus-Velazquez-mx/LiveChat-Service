@@ -18,10 +18,22 @@ function AuthProvider({ children }) {
     /* Esta constante nos permite guardar la conexión y usarla en toda la pantalla */
     const [socket, setSocket] = useState(null);
 
+    /* Guardamos el usuario */
+    const [usuario, setUsuario] = useState(null);
+
     /* Cuando se renderice por primera vez, o cambie el token, pasará esto.*/
     useEffect(() => {
         /* Si hay un token activo, abrimos el túnel TCP global */
         if (token) {
+            try {
+                /*El token tiene 3 partes separadas por un punto. El payload es la [1]
+                 atob() lo descifra y JSON.parse lo convierte en objeto */
+                const payloadDecodificado = JSON.parse(atob(token.split('.')[1]));
+                setUsuario(payloadDecodificado); // Lo guardamos en el estado
+            } catch (error) {
+                console.error("Error al decodificar el token en el front");
+            }
+
             /* Abre el tunel de comunicación con el backend */
             /* io(URL, opciones)*/
             /* opciones es un objeto de opciones */
@@ -51,6 +63,7 @@ function AuthProvider({ children }) {
                 socket.disconnect();
                 setSocket(null);
             }
+            setUsuario(null);
         }
     }, [token]); /* Reacciona automáticamente al iniciar o cerrar sesión */
 
@@ -72,6 +85,7 @@ function AuthProvider({ children }) {
         socket, /* Pasamos el socket para que sea accesible desde cualquier contenedor */
         isAuth: !!token, /* Se convierte en 'true' si hay token, o 'false' si es null */
         login,
+        usuario, /* Pasamos los datos del usuario logueado */
         logout
     };
 

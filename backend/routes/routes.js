@@ -6,8 +6,8 @@ import mensajesController from '../controllers/mensajesController.js';
 import { verificarToken } from '../middlewares/validarToken.js';
 
 /* Funciones */
-const { obtenerUsuarios, obtenerUsuariosActivos, registrarUsuario, iniciarSesion } = usuariosController;
-const { mostrarMensajes, mandarMensaje } = mensajesController;
+const { obtenerUsuarios, registrarUsuario, iniciarSesion } = usuariosController;
+const { mostrarMensajes, mandarMensaje, obtenerUsuariosConMensajes } = mensajesController;
 
 /* Router de express */
 const router = Router();
@@ -17,11 +17,11 @@ const router = Router();
 /* Usamos la función verificarToken para aquellas que ya menejen usuarios (tokens/gafetes) */
 /* Usuarios */
 router.get('/usuarios', verificarToken, obtenerUsuarios);
-router.get('/usuarios/activos', verificarToken, obtenerUsuariosActivos);
 router.post('/usuarios/registrar', registrarUsuario);
 router.post('/usuarios/iniciarSesion', iniciarSesion);
 
 /* Mensajes */
 router.get('/mensajes', verificarToken, mostrarMensajes);
-router.post('/mensajes', verificarToken, mandarMensaje);
+router.post('/mandarMensaje', verificarToken, mandarMensaje);
+router.get('/usuariosConMensajes', verificarToken, obtenerUsuariosConMensajes)
 export default router;

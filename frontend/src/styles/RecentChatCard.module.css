@@ -1,0 +1,63 @@
+.recentChatCard {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 16px 20px;
+    /* Efecto glass */
+    background-color: var(--color-glass-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--color-glass-borde);
+    border-radius: 16px;
+    box-shadow: 0 4px 6px var(--color-sombra-glass);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.topRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+
+.recentChatCard:hover {
+    transform: translateY(-4px);
+    background-color: var(--color-fondo-contenedorPrimario);
+    border-color: var(--color-primario);
+    box-shadow: 0 10px 15px var(--color-sombra-glass), 0 0 0 1px var(--color-primario);
+}
+
+.h1RecentChatCard {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-texto);
+    /* Poner ... para los correos largos */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-right: 10px;
+}
+
+.h2RecentChatCard {
+    margin: 0;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-texto-secundario);
+    /* Poner ... para los mensajes largos */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+}
+
+.h3RecentChatCard {
+    margin: 0;
+    font-size: 0.675rem;
+    font-weight: 500;
+    color: var(--color-texto-secundario);
+    /* Forzamos a que la fecha no se encoja */
+    flex-shrink: 0;
+}

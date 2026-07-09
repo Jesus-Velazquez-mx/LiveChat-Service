@@ -1,0 +1,64 @@
+.chatContainer {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    background-color: var(--color-glass-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-left: 1px solid var(--color-glass-borde);
+    position: relative;
+}
+
+.chatHeader {
+    display: flex;
+    align-items: center;
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--color-glass-borde);
+    /* Le damos un fondo un poco más sólido para diferenciarlo del área de mensajes */
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.backButton {
+    background: transparent;
+    border: none;
+    color: var(--color-texto);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    margin-right: 12px;
+    border-radius: 50%;
+    transition: background-color 0.2s ease;
+}
+
+.backButton:hover {
+    background-color: var(--color-glass-borde);
+}
+
+.chatTitle {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-texto);
+}
+
+/* El área de los mensajes (Toma todo el espacio restante) */
+.messagesArea {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    /* Permite hacer scroll vertical */
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    /* Espaciado entre cada burbuja */
+}
+
+/* El contenedor del input (Tu MessageBar) */
+.inputArea {
+    padding: 16px 20px;
+    border-top: 1px solid var(--color-glass-borde);
+    background-color: var(--color-fondo-contenedorPrimario);
+}
