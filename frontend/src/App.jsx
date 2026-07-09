@@ -1,7 +1,10 @@
 import './App.css'
+import WelcomeSign from './components/WelcomeSign';
 import LoginFormContainer from './containers/LoginFormContainer';
 import HomeContainer from './containers/HomeContainer';
 import UserCardContainer from './containers/UserCardContainer'
+import RecentChatCardContainer from './containers/RecentChatCardContainer';
+import ProtectedRoute from './components/ProtectedRoute';
 /* Para el manejo global del token*/
 import AuthProvider from './context/AuthContext';
 /* Para manejar URLs */
@@ -28,13 +31,14 @@ function App() {
             <Route path="/signup" element={<LoginFormContainer isSignIn={false} />} />
             {/* Se va a utilizar un Outlet, que permite manejar vistas dentro de vistas.
             Es decir, podemos hacer que una vista se renderice dentro de un contenedor*/}
-            <Route path="/home" element={<HomeContainer />}>
-              {/* Estas rutas se inyectarán en HomeContainer */}
-              <Route index element={<UserCardContainer isActiveList={false} />} />
-
-              <Route path="chats" />
-              <Route path="conectados" element={<UserCardContainer isActiveList={true} />} />
-              <Route path="usuarios" element={<UserCardContainer isActiveList={false} />} />
+            <Route element={<ProtectedRoute />}>
+              <Route path="/home" element={<HomeContainer />}>
+                {/* Estas rutas se inyectarán en HomeContainer */}
+                <Route index element={<WelcomeSign />} />
+                <Route path="chats" element={<RecentChatCardContainer />} />
+                <Route path="online" element={<UserCardContainer isActiveList={true} />} />
+                <Route path="allusers" element={<UserCardContainer isActiveList={false} />} />
+              </Route>
             </Route>
 
             {/* Buena práctica. Si alguien escribe lo que sea que no existe, lo mandamos a login */}

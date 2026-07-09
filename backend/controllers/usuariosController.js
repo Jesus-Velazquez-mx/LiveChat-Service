@@ -25,21 +25,6 @@ const obtenerUsuarios = (req, res) => {
     });
 }
 
-const obtenerUsuariosActivos = (req, res) => {
-    /* db.all(sql (string), [param, ...], callback) */
-    /* all es una funcion que devuelve todas las filas que coinciden con la consulta */
-    const sqlObtenerUsuariosActivos = 'SELECT * FROM usuarios WHERE enLinea = 1';
-
-    db.all(sqlObtenerUsuariosActivos, (err, rows) => {
-        if (err) {
-            console.log("Error al listar a todos los usuarios", err.message);
-            return res.status(500).json({ error: "Error al listar a todos los usuarios activos" })
-        } else {
-            res.json(rows);
-        }
-    });
-}
-
 /* Es async porque necesita esperar a que termine la encriptación antes de hacer el INSERT */
 const registrarUsuario = async (req, res) => {
     /* safeParse es una funcion de zod que valida los datos desde el objeto */
@@ -155,6 +140,7 @@ const iniciarSesion = async (req, res) => {
 
     })
 
+
 }
 
-export default { obtenerUsuarios, obtenerUsuariosActivos, registrarUsuario, iniciarSesion }
+export default { obtenerUsuarios, registrarUsuario, iniciarSesion }

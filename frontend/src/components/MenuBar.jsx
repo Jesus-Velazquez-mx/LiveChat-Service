@@ -21,12 +21,12 @@ function MenuBar({ handleLogOut }) {
                 </Link>
 
                 {/* Solo usuarios conectados */}
-                <Link to="/home/conectados" className={styles.iconosMenu} title="Online users">
+                <Link to="/home/online" className={styles.iconosMenu} title="Online users">
                     <FiActivity size={24} />
                 </Link>
 
                 {/* Todos los usuarios*/}
-                <Link to="/home/usuarios" className={styles.iconosMenu} title="All users">
+                <Link to="/home/allusers" className={styles.iconosMenu} title="All users">
                     <FiUsers size={24} />
                 </Link>
 

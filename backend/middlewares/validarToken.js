@@ -3,6 +3,7 @@
 import jwt from 'jsonwebtoken';
 
 /* El parametro next abre la puerta al backend */
+/* Regresa el usuario logueado */
 export const verificarToken = (req, res, next) => {
     /* Extraer el token. En el estándar, el frontend envía el token en la cabecera "Authorization" 
     con este formato: "Bearer eyJhbGciOiJIUzI1NiIsInR..." */

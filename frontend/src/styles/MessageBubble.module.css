@@ -1,0 +1,45 @@
+.contenedorBubbles {
+    display: flex;
+    width: 100%;
+}
+
+/* Si es tu mensaje, lo empujamos a la derecha */
+.contenedorLadoDerecho {
+    justify-content: flex-end;
+}
+
+/* Si es del contacto, lo empujamos a la izquierda */
+.contenedorLadoIzquierdo {
+    justify-content: flex-start;
+}
+
+/* Base de la burbuja */
+.bubble {
+    max-width: 70%;
+    padding: 10px 16px;
+    border-radius: 18px;
+    box-shadow: 0 4px 6px var(--color-sombra-glass);
+}
+
+.mensajeMandado {
+    background-color: var(--color-primario);
+    color: #FFFFFF;
+    border-bottom-right-radius: 4px;
+}
+
+.mensajeRecibido {
+    /* Aplicamos tu Glassmorphism */
+    background-color: var(--color-glass-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--color-glass-borde);
+    color: var(--color-texto);
+    border-bottom-left-radius: 4px;
+}
+
+.text {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    word-wrap: break-word;
+}
